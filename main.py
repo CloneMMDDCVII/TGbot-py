@@ -1,13 +1,22 @@
 import urllib.request #needed to make request over the internet
 import json #needed to parse the json files returned by telegram
-
+import cust
+import settings
 #BotSettings
 
 
-BotToken = ""
+BotToken = str(settings.token())
 ApiUrl = ("https://api.telegram.org/bot"+BotToken+"/")
+Offset= settings.offset()
+
+
 #print(ApiUrl)
-def apiSendMessage(id, text):
+
+
+
+
+
+def apiSendMessage(id,text):
 	sendrequest=(ApiUrl+"sendMessage?chat_id="+str(id)+"&text="+str(text))
 	print(sendrequest)
 	urllib.request.urlopen(sendrequest)
@@ -22,11 +31,10 @@ def apiSendMessage(id, text):
 #    This is a code sample of jarvis, the know it all bot   #
 #===========================================================#
 
-apiSendMessage(str(input()), str(input()))
+apiSendMessage(settings.chats(str(input())), str(input()))
 
 exit()
 print("Please enter text")
 text=input()
 print("please enter chat ID")
 id=input()
-
