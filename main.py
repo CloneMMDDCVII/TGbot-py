@@ -1,8 +1,8 @@
 import urllib.request #needed to make request over the internet
 import json #needed to parse the json files returned by telegram
-import cust
-import settings
-#BotSettings
+import urllib.quote #allows to make http request with diverse characters
+import cust #my custom functions
+import settings #different bot settings, and onetime used variables
 
 
 BotToken = str(settings.token())
@@ -10,28 +10,26 @@ ApiUrl = ("https://api.telegram.org/bot"+BotToken+"/")
 Offset= settings.offset()
 
 
-#print(ApiUrl)
-
-
-
-
+def askChat():
+	return settings.chats(str(input()))
+def proceed(sendrequest):
+	print(sendrequest)
+	urllib.request.urlopen(urllib.quote(sendrequest))
 
 def apiSendMessage(id,text):
-	sendrequest=(ApiUrl+"sendMessage?chat_id="+str(id)+"&text="+str(text))
-	print(sendrequest)
-	urllib.request.urlopen(sendrequest)
+	Url=(ApiUrl+"sendMessage?chat_id="+str(id)+"&text="+str(text))
+	proceed(Url)
 
+def apiSendChatAction(id,action):
+	Url=(ApiUrl+"sendChatAction?chat_id="+str(id)+"&action="+str(action))
+	proceed(Url)
 
-#def onmessage(msg, chat_id, user_id)
-
-#if msg=="move":
-	
 
 #===========================================================#
 #    This is a code sample of jarvis, the know it all bot   #
 #===========================================================#
-
-apiSendMessage(settings.chats(str(input())), str(input()))
+apiSendChatAction(askChat(), "typing")
+apiSendMessage(askChat(), str(input()))
 
 exit()
 print("Please enter text")
