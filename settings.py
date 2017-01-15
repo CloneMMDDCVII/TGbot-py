@@ -1,18 +1,13 @@
 def token():
-	return "262106974:AAHqTeiBBJldrBF7rE8U42Id2t7XIEw2koY"
+	return "123456789:AZERTYUIOPAZERTYUIOPAZERTYUIOP"
 
-def offset():
+offset():
 	return 10
 
 def chats(id):
 	if id == "test":
-		id = -177486285
+		id =1000000
 	if id == "friends":
-		id = -1001045897759
-
-
-
-
-
+		id = -10014242424242
 
 	return id
