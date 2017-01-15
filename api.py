@@ -14,5 +14,5 @@ def SendChatAction(id,action):#check telegram's bot api documentation for inputa
 	cust.proceed(Url)
 
 def SendKeyboard(id, text, button, data):#just a simple, basic keyboard. I might make it better by creating a function that would create the json object before, it would allow me to make multi buttons messages. In addition, I still need to figure out how callback data works. I really suck at this.
-	Url=(ApiUrl+"sendMessage?chat_id="+str(id)+"&text="+str2http(text)+"""&reply_markup={%22inline_keyboard%22:[[{"text":%22"""+str2http(button)+"""","callback_data":%22"""+data+"}]]}")
+	Url=(ApiUrl+"sendMessage?chat_id="+str(id)+"&text="+cust.str2http(text)+"""&reply_markup={%22inline_keyboard%22:[[{"text":%22"""+cust.str2http(button)+"""","callback_data":%22"""+data+"}]]}")
 	cust.proceed(Url)
