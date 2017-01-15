@@ -3,11 +3,7 @@ import json #needed to parse the json files returned by telegram
 import urllib.parse #allows to make http request with diverse characters
 import cust #my custom functions
 import settings #different bot settings, and onetime used variables
-import api
-
-BotToken = str(settings.token())
-ApiUrl = ("https://api.telegram.org/bot"+BotToken+"/")
-Offset= settings.offset()
+import api #all basic functions are now stored in api.py
 
 
 
@@ -17,11 +13,15 @@ Offset= settings.offset()
 
 
 
+
+print("""#===========================================================#
+#    TGBot-py by BrokenClock  V0.03 non-interractive mode   #
+#===========================================================#""")
 #===========================================================#
 #    This is a code sample of jarvis, the know it all bot   #
 #===========================================================#
-api.SendChatAction(cust.askChat(), "typing")
-api.SendMessage(cust.askChat(), str(input()))
-api.SendKeyboard(cust.askChat(), input(), input())
+#api.SendChatAction(cust.askChat(), "typing")
+#api.SendMessage(cust.askChat(), str(input()))
+api.SendKeyboard(cust.askChat(), input(), input(), input())
 
 exit()
