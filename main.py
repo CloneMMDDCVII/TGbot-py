@@ -17,11 +17,8 @@ import api #all basic functions are now stored in api.py
 print("""#===========================================================#
 #    TGBot-py by BrokenClock  V0.03 non-interractive mode   #
 #===========================================================#""")
-#===========================================================#
-#    This is a code sample of jarvis, the know it all bot   #
-#===========================================================#
 #api.SendChatAction(cust.askChat(), "typing")
 #api.SendMessage(cust.askChat(), str(input()))
-api.SendKeyboard(cust.askChat(), input(), input(), input())
+api.SendKeyboard(cust.askChat(), input())
 
 exit()
