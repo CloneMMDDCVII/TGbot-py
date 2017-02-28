@@ -1,7 +1,7 @@
 def token():
 	return "123456789:AZERTYUIOPAZERTYUIOPAZERTYUIOP"
 
-offset():
+def offset():
 	return 10
 
 def chats(id):
